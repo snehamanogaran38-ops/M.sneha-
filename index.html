@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Sneha Portfolio</title>
+
+  <style>
+
+    :root{
+
+      --accent:#2563eb;
+
+      --bg:#f7f8fb;
+
+      --card:#ffffff;
+
+      --text:#1f2937;
+
+      --muted:#6b7280;
+
+      --radius:12px;
+
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+
+      margin:0;
+
+      font-family: Inter, Arial, sans-serif;
+
+      background:var(--bg);
+
+      color:var(--text);
+
+      line-height:1.5;
+
+    }
+
+    .container{max-width:960px;margin:28px auto;padding:18px;}
+
+    header{
+
+      background:linear-gradient(90deg,var(--accent), #06b6d4);
+
+      color:white;
+
+      padding:32px;
+
+      border-radius:var(--radius);
+
+      box-shadow:0 6px 20px rgba(37,99,235,0.12);
+
+      display:flex;gap:20px;align-items:center;
+
+    }
+
+    .avatar{width:88px;height:88px;border-radius:14px;background:rgba(255,255,255,0.15);
+
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;}
+
+    header h1{margin:0;font-size:24px}
+
+    header p{margin:4px 0 0 0;opacity:0.95}
+
+    .grid{display:grid;grid-template-columns: 1fr 320px;gap:18px;margin-top:18px;}
+
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(10,10,10,0.04);}
+
+    .card h2{margin:0 0 10px 0;color:var(--accent)}
+
+    .muted{color:var(--muted);font-size:14px}
+
+    ul{padding-left:18px;margin:8px 0;line-height:1.6}
+
+    a{color:var(--accent);text-decoration:none}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+
+    .chip{background:#eef2ff;padding:6px 10px;border-radius:999px;font-size:13px;color:var(--accent)}
+
+    .contact a{display:inline-block;margin-right:12px}
+
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);
+
+      color:white;text-decoration:none;font-weight:600;cursor:pointer;border:none;}
+
+    @media (max-width:880px){.grid{grid-template-columns:1fr;}header{flex-direction:column;text-align:center}}
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+
+      <div class="avatar" id="avatar">SN</div>
+
+      <div>
+
+        <h1 id="name">Sneha</h1>
+
+        <p id="role">B.Sc Computer Science Student</p>
+
+        <div style="margin-top:8px">
+
+          <button class="btn" id="downloadResume">Download Resume</button>
+
+          <button class="btn" id="toggleTheme" style="background:#0ea5a4">Toggle Theme</button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <div class="grid">
+
+      <!-- Main column -->
+
+      <div>
+
+        <section class="card" id="about">
+
+          <h2>About Me</h2>
+
+          <p>Hello! I am <strong>Sneha</strong>, currently pursuing <strong>B.Sc Computer Science</strong> at <strong>Sangamam College of Arts and Science, Annamagalam</strong>. I am passionate about technology and building web projects.</p>
+
+        </section>
+
+        <section class="card" id="projects" style="margin-top:14px">
+
+          <h2>Completed Projects</h2>
+
+          <ul>
+
+            <li><strong>Student Portfolio</strong> — Personal portfolio website using HTML, CSS, JavaScript.</li>
+
+          </ul>
+
+        </section>
+
+        <section class="card" id="achievements" style="margin-top:14px">
+
+          <h2>Certifications</h2>
+
+          <ul>
+
+            <li>Fundamental and Web Development</li>
+
+          </ul>
+
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+
+      <aside>
+
+        <div class="card contact">
+
+          <h2>Contact</h2>
+
+          <p class="muted">Email</p>
+
+          <p><a href="mailto:snehamanogaran38@gmail.com" id="emailLink">snehamanogaran38@gmail.com</a></p>
+
+        </div>
+
+        <div class="card" style="margin-top:14px">
+
+          <h2>Skills</h2>
+
+          <div class="skills" id="skillsList">
+
+            <span class="chip">HTML</span>
+
+            <span class="chip">CSS</span>
+
+            <span class="chip">JavaScript</span>
+
+            <span class="chip">Python</span>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+    <footer style="text-align:center;margin-top:18px;color:var(--muted);font-size:14px">
+
+      © <span id="year"></span> Sneha • Built with HTML/CSS/JS
+
+    </footer>
+
+  </div>
+
+  <script>
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('downloadResume').addEventListener('click', function(){
+
+      const data = [
+
+        'Name: Sneha',
+
+        'Email: snehamanogaran38@gmail.com',
+
+        'Degree: B.Sc Computer Science - Sangamam College of Arts and Science, Annamagalam',
+
+        '',
+
+        'Skills: HTML, CSS, JavaScript, Python',
+
+        '',
+
+        'Project:',
+
+        '- Student Portfolio',
+
+        '',
+
+        'Certification:',
+
+        '- Fundamental and Web Development'
+
+      ].join('\\n');
+
+      const blob = new Blob([data], { type: 'text/plain' });
+
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+
+      a.href = url;
+
+      a.download = 'Sneha-Resume.txt';
+
+      document.body.appendChild(a);
+
+      a.click();
+
+      a.remove();
+
+      URL.revokeObjectURL(url);
+
+    });
+
+    let dark = false;
+
+    document.getElementById('toggleTheme').addEventListener('click', () => {
+
+      dark = !dark;
+
+      if(dark){
+
+        document.documentElement.style.setProperty('--bg','#0b1220');
+
+        document.documentElement.style.setProperty('--card','#071022');
+
+        document.documentElement.style.setProperty('--text','#e6eef8');
+
+        document.documentElement.style.setProperty('--muted','#9aa6bd');
+
+      } else {
+
+        document.documentElement.style.setProperty('--bg','#f7f8fb');
+
+        document.documentElement.style.setProperty('--card','#ffffff');
+
+        document.documentElement.style.setProperty('--text','#1f2937');
+
+        document.documentElement.style.setProperty('--muted','#6b7280');
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>

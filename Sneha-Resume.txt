@@ -1,0 +1,1 @@
+Name: Sneha\nEmail: snehamanogaran38@gmail.com\nDegree: B.Sc Computer Science - Sangamam College of Arts and Science, Annamagalam\n\nSkills: HTML, CSS, JavaScript, Python\n\nProject:\n- Student Portfolio\n\nCertification:\n- Fundamental and Web Development
